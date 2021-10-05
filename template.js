@@ -2,32 +2,32 @@ function generateTeam(teamMembers) {
     return teamMembers.map((member) => {
         if (member?.officeNumber) {
     
-            return `<div>
+            return `<div class="employee">
             <h2>Manager</h2>
-            <h3>Name: ${member.name}</h3>
-            <h3>ID number: ${member.id}</h3>
-            <h3>Email: ${member.email}</h3>
-            <h3>Office number: ${member.officeNumber}</h3>
+            <p>Name: ${member.name}</p>
+            <p>ID number: #${member.id}</p>
+            <p>Email: ${member.email}</p>
+            <p>Office number: ${member.officeNumber}</p>
             </div>`;
 
         } else if (member?.github) {
                 
-            return `<div>
+            return `<div class="employee">
             <h2>Engineer</h2>
-            <h3>Name: ${member.name}</h3>
-            <h3>ID number: ${member.id}</h3>
-            <h3>Email: ${member.email}</h3>
-            <h3>Github URL: ${member.github}</h3>
+            <p>Name: ${member.name}</p>
+            <p>ID number: #${member.id}</p>
+            <p>Email: ${member.email}</p>
+            <p>Github URL: ${member.github}</p>
             </div>`;
 
         } else if (member?.school) {
 
-            return `<div>
+            return `<div class="employee">
             <h2>Intern</h2>
-            <h3>Name: ${member.name}</h3>
-            <h3>ID number: ${member.id}</h3>
-            <h3>Email address: ${member.email}</h3>
-            <h3>School: ${member.school}</h3>
+            <p>Name: ${member.name}</p>
+            <p>ID number: #${member.id}</p>
+            <p>Email address: ${member.email}</p>
+            <p>School: ${member.school}</p>
             </div>`;
         }
             
@@ -45,14 +45,20 @@ module.exports = team => {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/style.css">
     <title>Team Profile</title>
 </head>
-<body> `
+<body>
+    <div class="header">
+        <h1>My Team</h1>
+    </div>
+<div class="container">`
     generateTeam(team).forEach(member => {
         page += member
     })
     
-    page += ` </body>
+    page += ` </div> </body>
 </html>`
 return page;
 }
